@@ -85,25 +85,20 @@
                 android:orientation="vertical">
                 <ImageButton
                     android:id="@+id/buttonadd"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:backgroundTint="@color/colorPrimary"
                     android:background="@drawable/ic_add_circle"
                     />
                 <ImageButton
-                    android:id="@+id/buttonok"
-                    android:layout_marginTop="40dp"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="end"
-                    android:background="@drawable/ic_palomita"/>
-                <ImageButton
                     android:id="@+id/buttonnext"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="5dp"
                     android:layout_gravity="end"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/ic_arrow"/>
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/ic_arrow"
+                    android:backgroundTint="@color/colorPrimary"/>
 
             </LinearLayout>
             <LinearLayout

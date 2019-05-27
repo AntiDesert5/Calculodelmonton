@@ -18,15 +18,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="10pt"
-                android:text="Instrucciones:\nIngrese los datos que contenga su tabla una vez ingresados todos los datos de clic en aceptar si no requiere agregar otra tabla, si requiere mas tablas solo de clic en siguiente las veces necesarias que requiera, una vez terminado de clic en aceptar y se desplegaran los resultados."/>
+                android:text="Instrucciones:\nIngrese los datos que contenga su tabla, una vez ingresados todos los datos de clic en la flecha. \nLa aplicación permite ingresar múltiples tablas y muestra los resultados conforme ingrese tablas."/>
             <ImageButton
                 android:id="@+id/start"
                 android:backgroundTint="@color/colorPrimary"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/ic_arrow"
                 android:layout_gravity="center"
-                android:layout_width="60dp"
-                android:layout_height="60dp" />
+                android:layout_width="70dp"
+                android:layout_height="70dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Comencemos"/>
         </LinearLayout>
     </ScrollView>
 
