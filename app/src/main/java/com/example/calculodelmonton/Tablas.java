@@ -1,5 +1,6 @@
 package com.example.calculodelmonton;
-
+//AXEl Valenzuela Juarez
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -21,8 +22,8 @@ import butterknife.OnClick;
 
 public class Tablas extends AppCompatActivity {
     double totalmonton;
-    int contDat = 0;
-    int contTab = 0;
+    int contDat = 1;
+    int contTab = 1;
     double varV = 0;
     double varE = 0;
     double Num_Variable_Cols = 0;
@@ -78,9 +79,58 @@ public class Tablas extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.buttonnext:
+
+
+
+
+
+
+
+
+
+
+
+
                 if (edit1.getText().toString().isEmpty() || noFilas.getText().toString().isEmpty()) {
                  Toast.makeText(Tablas.this, "Rellene todos los campos", Toast.LENGTH_LONG).show();
                } else {
+                    spinner.setEnabled(false);
+                    edit1.setEnabled(false);
+                    String dat = (spinner.getSelectedItem().toString().trim());
+                    switch (dat) {
+                        case "Integer":
+                            edit1.setText("n/a");
+                            System.out.println("funciona case 1");
+                            ArreEstaticos.add(4.0);
+                            varE += 4.0;
+                            break;
+                        case "Varchar":
+                            Num_Variable_Cols++;
+                            System.out.println("funciona case 2");
+                            String au = edit1.getText().toString().trim();
+                            double doble = Double.parseDouble(au);
+                            ArreVariables.add(1 + doble);
+                            varV += 1 + doble;
+                            break;
+                        case "Date":
+                            edit1.setText("n/a");
+                            System.out.println("funciona case 3");
+                            ArreEstaticos.add(3.0);
+                            varE += 3.0;
+                            break;
+                        case "Numeric":
+                            Num_Variable_Cols++;
+                            System.out.println("funciona case 4");
+                            String au1 = edit1.getText().toString().trim();
+                            double doble1 = Double.parseDouble(au1);
+                            ArreVariables.add(2 + doble1);
+                            varV += 2 + doble1;
+                            break;
+                    }
+
+
+
+                    //aqui
                     String Snfilas = noFilas.getText().toString().trim();
                     double nfilas = Double.parseDouble(Snfilas);
                     int Num_Cols = contDat;
@@ -125,18 +175,36 @@ public class Tablas extends AppCompatActivity {
                     System.out.print("algo: " + elemento + " / ");
                     Resultado.setText(elemento+",");
                 }*/
+
+                //*******
+                    contDat++;
+
+                    mostdat.setText("Numero de datos: " + contDat);
+                    line = new LinearLayout(Tablas.this);
+                    spinner = new Spinner(Tablas.this);
+                    edit1 = new EditText(Tablas.this);
+                    edit1.setHint("Tamaño");
+                    spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, datos));
+                    spinner.setLayoutParams(new LinearLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
+                    spinner.setContentDescription("spinerbueno" + contDat);
+                    edit1.setLayoutParams(new LinearLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
+                    edit1.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    line.addView(spinner);
+                    line.addView(edit1);
+                    paracrear.addView(line);
+
+
+
+
                 }
                 break;
             case R.id.buttonadd:
                 if (edit1.getText().toString().isEmpty()) {
-                    edit1.setText("0");
+                    edit1.setText("n/a");
                 }
-//                if (edit1.getText().toString().isEmpty() || noFilas.getText().toString().isEmpty()) {
-//                    Toast.makeText(Tablas.this, "Rellene todos los campos", Toast.LENGTH_LONG).show();
-//                } else {
-                contDat++;
                 spinner.setEnabled(false);
                 edit1.setEnabled(false);
+
                 String dat = (spinner.getSelectedItem().toString().trim());
                 switch (dat) {
                     case "Integer":
@@ -161,6 +229,11 @@ public class Tablas extends AppCompatActivity {
                         break;
                     case "Numeric":
                         Num_Variable_Cols++;
+                        String au2 = edit1.getText().toString().trim();
+                        int int1 = Integer.parseInt(au2);
+                        if (int1==0){
+                            edit1.setText("1");
+                        }
                         System.out.println("funciona case 4");
                         String au1 = edit1.getText().toString().trim();
                         double doble1 = Double.parseDouble(au1);
@@ -168,6 +241,12 @@ public class Tablas extends AppCompatActivity {
                         varV += 2 + doble1;
                         break;
                 }
+
+//                if (edit1.getText().toString().isEmpty() || noFilas.getText().toString().isEmpty()) {
+//                    Toast.makeText(Tablas.this, "Rellene todos los campos", Toast.LENGTH_LONG).show();
+//                } else {
+                contDat++;
+
                 mostdat.setText("Numero de datos: " + contDat);
                 line = new LinearLayout(Tablas.this);
                 spinner = new Spinner(Tablas.this);
